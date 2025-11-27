@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>CNIC Masking</title>
+</head>
+<body>
+    <table align="center" width="50" border="1px">
+        <tr>
+            <td>CNIC</td>
+            <td><input type='text' data-inputmask="'mask':'99999-9999999-9'" placeholder="xxxxx-xxxxxxx-x"></td>
+        </tr>
+		<tr>
+			<td>Hello</td>
+		</tr>
+    </table>
+</body>
+</html>
+<script src="jquery.min.js"></script>
+<script src="jquery.inputmask.bundle.js"></script>
+<script>
+    $(":input").inputmask();
+</script>

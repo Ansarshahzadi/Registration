@@ -83,7 +83,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         move_uploaded_file($img_tmp, $folder);
         $picture_path = $img_name;
     }
-
     // ---------------------------
     // STATUS UPDATE HANDLER (AJAX or FORM)
     // ---------------------------

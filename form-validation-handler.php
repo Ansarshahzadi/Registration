@@ -79,6 +79,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (!empty($_FILES['student_picture']['name'])) {
         $img_name = time() . "_" . $_FILES['student_picture']['name'];
         $img_tmp = $_FILES['student_picture']['tmp_name'];
+        
         $folder = "uploads/" . $img_name;
         move_uploaded_file($img_tmp, $folder);
         $picture_path = $img_name;

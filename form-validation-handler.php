@@ -40,12 +40,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 (student_name, father_name, class_name, session_year, dob, gender,student_cnic, father_cnic, address, obtained_marks, total_marks, caste, language, phone, transport, rent, stop_point, picture, status)
                 VALUES 
                 ('$student_name','$father_name','$class_name','$session_year','$dob','$gender','$student_cnic','$father_cnic','$address', '$obtained_marks', '$total_marks', '$caste','$language','$phone','$transport','$rent','$stop_point','$picture_path', '$status')";
-
             mysqli_query($cn, $query);
         }
-
         fclose($file);
-
         header("Location: index.php?bulk_success=1");
         exit();
     }
@@ -71,7 +68,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $rent = $_POST['rent'] ?? '';
     $stop_point = $_POST['stop_point'] ?? '';
     $status = $_POST['status'] ?? 'active'; // default active
-
     // ---------------------------
     // IMAGE UPLOAD
     // ---------------------------
@@ -81,7 +77,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $img_tmp = $_FILES['student_picture']['tmp_name'];
         
         $folder = "uploads/" . $img_name;
+
         move_uploaded_file($img_tmp, $folder);
+
         $picture_path = $img_name;
     }
     
@@ -93,7 +91,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $status_new = $_POST['status'] === 'active' ? 'active' : 'inactive';
         $query = "UPDATE students SET status='$status_new' WHERE id=$student_id";
         mysqli_query($cn, $query);
-
         // JSON response for AJAX
         if (isset($_POST['ajax']) && $_POST['ajax'] == 1) {
             echo json_encode(['success' => true, 'status' => $status_new]);
@@ -127,7 +124,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             rent='$rent',
             stop_point='$stop_point',
             status= '$status'";
-
         if ($picture_path != "") {
             $query .= ", picture='$picture_path'";
         }

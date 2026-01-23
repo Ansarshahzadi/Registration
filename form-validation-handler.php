@@ -107,6 +107,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         // UPDATE QUERY
         $query = "UPDATE students SET 
             student_name='$student_name',
+            
             father_name='$father_name',
             class_name='$class_name',
             session_year='$session_year',

@@ -33,6 +33,7 @@ if (!$student) {
         <label>Father Name</label>
         <input type="text" name="father_name" value="<?php echo $student['father_name']; ?>" class="form-control">
       </div>
+      
       <!-- Add other fields similarly -->
       <div class="mb-3">
         <label>Status</label>
